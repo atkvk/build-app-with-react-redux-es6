@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "start": "babel-node tools/srcServer.js"
   },
   "author": "Cory House",
   "license": "MIT",
