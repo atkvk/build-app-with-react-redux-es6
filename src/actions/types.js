@@ -1,1 +1,2 @@
 export const CREATE_COURSE = 'CREATE_COURSE';
+export const LOAD_COURSES_OK = 'LOAD_COURSES_OK';
