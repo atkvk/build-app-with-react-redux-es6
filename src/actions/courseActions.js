@@ -6,6 +6,7 @@ import {
 } from './types';
 
 import courseApi from '../api/mockCourseApi';
+import {beginAjaxCall} from'./ajaxStatusActions';
 
 export function createCourse(course) {
   return {
@@ -16,6 +17,9 @@ export function createCourse(course) {
 
 export function loadCourses() {
   return dispatch => {
+
+    dispatch(beginAjaxCall());
+
     return courseApi.getAllCourses()
       .then(courses => dispatch(loadCoursesOk(courses)))
       .catch(error => {

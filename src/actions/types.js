@@ -1,3 +1,5 @@
+export const BEGIN_AJAX_CALL = 'BEGIN_AJAX_CALL';
+
 export const CREATE_COURSE = 'CREATE_COURSE';
 export const LOAD_COURSES_OK = 'LOAD_COURSES_OK';
 export const CREATE_COURSES_OK = 'CREATE_COURSES_OK';
