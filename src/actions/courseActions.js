@@ -37,6 +37,9 @@ function loadCoursesOk(courses) {
 
 export function saveCourse(course) {
   return function (dispatch, getState) {
+
+    dispatch(beginAjaxCall());
+
     courseApi.saveCourse(course)
       .then(function (course) {
         if (course.id) {
