@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import * as courseActions from '../../actions/courseActions';
 import CursusForm from './CourseForm';
 
-class ManageCoursePage extends React.Component {
+export class ManageCoursePage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -36,10 +36,29 @@ class ManageCoursePage extends React.Component {
 
   _saveCourse(event) {
     event.preventDefault();
+
+    if (!this._courseFormIsValid()) {
+      return;
+    }
+
     this.props.actions.saveCourse(this.state.course)
       .then(()=>this._redirect);
     // this.props.actions.saveCourse(this.state.course);
     // this.context.router.push('/courses');
+  }
+
+  _courseFormIsValid() {
+    let formIsValid = true;
+    let errors = {};
+
+    if (this.state.course.title.length < 5) {
+      errors.title = 'Title must be at least 5 characters.';
+      formIsValid = false;
+    }
+
+    this.setState({errors});
+
+    return formIsValid;
   }
 
   _redirect() {
